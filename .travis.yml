@@ -37,4 +37,5 @@ before_install:
   - if [ "$OPAMBUILDTEST" = "true" ]; then ${HOME}/opam pin add --dev-repo dolmen; fi
 script:
   # Build and launch the tests
+  - ls
   - make
