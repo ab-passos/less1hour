@@ -35,12 +35,6 @@ before_install:
   - export OPAMVERBOSE=1
   # Testing requires the dev version of dolmen
   - if [ "$OPAMBUILDTEST" = "true" ]; then ${HOME}/opam pin add --dev-repo dolmen; fi
-install:
-  # Install dependencies
-  - ${HOME}/opam pin add --no-action msat .
-  - ${HOME}/opam install --deps-only msat.dev
 script:
   # Build and launch the tests
-  - if [ "$TO_TEST" = "tests" ]; then make lib && make bin && make test; fi
-  # Try and install the package with opam
-  - if [ "$TO_TEST" = "install" ]; then ${HOME}/opam install msat.dev; fi
+  - make
